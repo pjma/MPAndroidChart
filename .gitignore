@@ -51,3 +51,4 @@ target/
 /.vs/slnx.sqlite
 /.vs/MPAndroidChart/v15/.suo
 /.vs/VSWorkspaceState.json
+/.vs/config/applicationhost.config
