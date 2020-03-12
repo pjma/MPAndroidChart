@@ -4,9 +4,11 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarLineScatterCandleBubbleData;
 import com.github.mikephil.charting.data.ChartData;
 import com.github.mikephil.charting.data.DataSet;
+import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.dataprovider.BarDataProvider;
 import com.github.mikephil.charting.interfaces.dataprovider.CombinedDataProvider;
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 import java.util.List;
 
@@ -58,6 +60,21 @@ public class CombinedHighlighter extends ChartHighlighter<CombinedDataProvider> 
                         continue;
 
                     List<Highlight> highs = buildHighlights(dataSet, j, xVal, DataSet.Rounding.CLOSEST);
+
+                    if(dataSet instanceof ILineDataSet  ){
+                        float distance = ((ILineDataSet)dataSet).getHighlightActiveDistance();
+                        if(distance>0f) {
+                            List<Highlight> highs_fix =  new java.util.ArrayList<Highlight>();
+                            //ArrayList<Highlight> highs_fix = new ArrayList<>();
+                            for (Highlight high : highs)
+                            {
+                                if(getDistance(x, y, high.getXPx(), high.getYPx())<distance){
+                                    highs_fix.add(high);
+                                }
+                            }
+                            highs = highs_fix;
+                        }
+                    }
                     for (Highlight high : highs)
                     {
                         high.setDataIndex(i);

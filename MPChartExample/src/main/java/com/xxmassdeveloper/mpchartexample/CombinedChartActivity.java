@@ -101,6 +101,7 @@ public class CombinedChartActivity extends DemoBase {
 
         chart.setData(data);
         chart.invalidate();
+        //chart.setMaxHighlightDistance(50);
     }
 
     private LineData generateLineData() {
@@ -125,7 +126,7 @@ public class CombinedChartActivity extends DemoBase {
 
         set.setAxisDependency(YAxis.AxisDependency.LEFT);
         d.addDataSet(set);
-
+        set.setHighlightActiveDistance(30f);
         return d;
     }
 

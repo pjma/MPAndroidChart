@@ -100,4 +100,7 @@ public interface ILineDataSet extends ILineRadarDataSet<Entry> {
      * @return
      */
     IFillFormatter getFillFormatter();
+
+    float getHighlightActiveDistance();
+    void setHighlightActiveDistance(float distance);
 }

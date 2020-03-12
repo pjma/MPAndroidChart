@@ -414,4 +414,13 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
         CUBIC_BEZIER,
         HORIZONTAL_BEZIER
     }
+
+    protected float mMaxHighlightDistance = -1;
+    public float getHighlightActiveDistance(){
+        return mMaxHighlightDistance;
+    }
+    public void setHighlightActiveDistance(float distance){
+        mMaxHighlightDistance = distance;
+    }
+
 }
