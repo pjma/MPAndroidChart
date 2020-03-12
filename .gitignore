@@ -49,3 +49,5 @@ target/
 .DS_Store
 /.vs/ProjectSettings.json
 /.vs/slnx.sqlite
+/.vs/MPAndroidChart/v15/.suo
+/.vs/VSWorkspaceState.json
